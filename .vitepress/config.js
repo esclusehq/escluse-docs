@@ -31,7 +31,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/escluse/escluse' }
+      { icon: 'github', link: 'https://github.com/esclusehq/escluse-docs' }
     ]
   },
 
