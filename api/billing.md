@@ -84,7 +84,7 @@ GET /api/v1/billing/invoices
 
 ## Webhook Events
 
-Esluce processes subscription events via webhooks:
+Escluse processes subscription events via webhooks:
 
 ### Subscription Created
 

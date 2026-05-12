@@ -6,7 +6,7 @@ Get your first game server running in minutes.
 
 After installing the agent, register your node in the dashboard:
 
-1. Log in to your Esluce dashboard at https://app.esluce.com
+1. Log in to your Escluse dashboard at https://app.esluce.com
 2. Navigate to **Nodes** → **Add Node**
 3. Copy the API key shown in the setup instructions
 

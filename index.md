@@ -1,10 +1,10 @@
 ---
 layout: home
-title: Esluce - Game Server Hosting Platform
+title: Escluse - Game Server Hosting Platform
 titleTemplate: false
 
 hero:
-  name: Esluce
+  name: Escluse
   text: "Game Server Hosting Platform"
   tagline: Deploy, manage, and monitor game servers with minimal configuration
   actions:

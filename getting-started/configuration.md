@@ -1,6 +1,6 @@
 # Configuration
 
-Advanced configuration options for the Esluce agent and API.
+Advanced configuration options for the Escluse agent and API.
 
 ## Agent Configuration
 

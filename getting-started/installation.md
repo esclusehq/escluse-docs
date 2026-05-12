@@ -1,6 +1,6 @@
 # Installation
 
-This guide walks you through setting up Esluce for managing game servers.
+This guide walks you through setting up Escluse for managing game servers.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This guide walks you through setting up Esluce for managing game servers.
 
 ## Installing the Agent
 
-The Esluce agent can be installed with a single command:
+The Escluse agent can be installed with a single command:
 
 ```bash
 curl -sSL https://get.esluce.com/agent | bash

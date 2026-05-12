@@ -161,7 +161,7 @@ POST /api/v1/servers/{id}/console
 **Request Body:**
 ```json
 {
-  "command": "say Hello from Esluce!"
+  "command": "say Hello from Escluse!"
 }
 ```
 

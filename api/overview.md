@@ -1,6 +1,6 @@
 # API Overview
 
-The Esluce REST API allows programmatic access to all platform features.
+The Escluse REST API allows programmatic access to all platform features.
 
 ## Base URL
 
