@@ -7,7 +7,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     nav: [
-      { text: 'Getting Started', link: '/getting-started/' },
+      { text: 'Getting Started', link: '/getting-started/installation' },
       { text: 'API Reference', link: '/api/overview' }
     ],
     sidebar: [
