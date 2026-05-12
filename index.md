@@ -13,7 +13,7 @@ hero:
       link: /getting-started/installation
     - theme: alt
       text: View on GitHub
-      link: https://github.com/escluse/escluse
+      link: https://github.com/esclusehq/escluse-docs
 
 features:
   - icon: 🚀
@@ -45,7 +45,7 @@ curl -sSL https://get.esluce.com/agent | bash
 
 # Configure your API key in /etc/escluse-agent/config.toml
 api_key = "your-api-key"
-api_url = "https://api.esluce.com"
+api_url = "https://api.escluse.com"
 
 # Start the agent
 sudo systemctl start escluse-agent

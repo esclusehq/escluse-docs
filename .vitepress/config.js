@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Esluce',
+  title: 'Escluse',
   description: 'Game Server Hosting Platform - Deploy, manage, and monitor game servers with ease',
 
   themeConfig: {
