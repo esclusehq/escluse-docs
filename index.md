@@ -13,7 +13,7 @@ hero:
       link: /getting-started/installation
     - theme: alt
       text: View on GitHub
-      link: https://github.com/esclusehq/escluse-docs
+      link: https://github.com/esclusehq
 
 features:
   - icon: 🚀
