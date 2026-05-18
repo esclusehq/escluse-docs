@@ -21,6 +21,13 @@ export default defineConfig({
         ]
       },
       {
+        text: 'About Escluse',
+        items: [
+          { text: 'What is Escluse?', link: '/#what-is-escluse' },
+          { text: 'Feature Reference', link: '/#feature-reference' }
+        ]
+      },
+      {
         text: 'API Reference',
         items: [
           { text: 'Overview', link: '/api/overview' },
