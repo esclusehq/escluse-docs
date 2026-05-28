@@ -26,16 +26,3 @@ Escluse is an open-source game server management platform that provides:
 | **Backups** | Automated server backups |
 | **REST API** | Full REST API for automation |
 
-## Quick Start
-
-```bash
-# Install the agent on your node
-curl -sSL https://get.esluce.com/agent | bash
-
-# Configure your API key in /etc/escluse-agent/config.toml
-api_key = "your-api-key"
-api_url = "https://api.escluse.com"
-
-# Start the agent
-sudo systemctl start escluse-agent
-```

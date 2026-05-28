@@ -19,3 +19,8 @@
   text-decoration: none;
   color: inherit;
 }
+
+.VPNavBar .VPImage.logo {
+  width: 64px;
+  height: 64px;
+}
