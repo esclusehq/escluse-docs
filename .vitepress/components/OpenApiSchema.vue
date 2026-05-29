@@ -37,6 +37,6 @@ const required = schema?.required || []
         </tr>
       </tbody>
     </table>
-    <p v-else class="schema-missing">Schema "{{ schemaName }}" not found in OpenAPI spec. See <StaticSchema documentation for manual schema definitions.</p>
+    <p v-else class="schema-missing">Schema "{{ schemaName }}" not found in OpenAPI spec. Use the StaticSchema component for manual schema definitions.</p>
   </div>
 </template>
