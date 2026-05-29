@@ -7,6 +7,7 @@ export default defineConfig({
     /\/api\/nodes\/api-keys$/,
     /\/api\/sdks\//,
     /\/api\/servers\//,
+    /\/api\/templates\//,
   ],
 
   themeConfig: {
