@@ -34,11 +34,82 @@ export default defineConfig({
         },
         {
           text: 'API Reference',
+          collapsed: false,
           items: [
             { text: 'Overview', link: '/api/overview' },
-            { text: 'Servers', link: '/api/servers' },
-            { text: 'Nodes', link: '/api/nodes' },
-            { text: 'Billing', link: '/api/billing' }
+            { text: 'Authentication', link: '/api/auth' },
+            {
+              text: 'Servers',
+              collapsed: true,
+              items: [
+                { text: 'Server CRUD', link: '/api/servers' },
+                { text: 'Operations', link: '/api/servers/operations' },
+                { text: 'File Management', link: '/api/servers/files' },
+                { text: 'Console & Logs', link: '/api/servers/console' },
+                { text: 'Backups', link: '/api/servers/backups' },
+                { text: 'Plugins', link: '/api/servers/plugins' },
+                { text: 'Git Operations', link: '/api/servers/git' },
+                { text: 'Build System', link: '/api/servers/build' },
+                { text: 'Deployment', link: '/api/servers/deploy' },
+                { text: 'Profiling', link: '/api/servers/profiling' },
+                { text: 'Server Properties', link: '/api/servers/properties' },
+                { text: 'Cron Tasks', link: '/api/servers/cron-tasks' },
+              ]
+            },
+            {
+              text: 'Nodes',
+              collapsed: true,
+              items: [
+                { text: 'Node Management', link: '/api/nodes' },
+                { text: 'API Keys', link: '/api/nodes/api-keys' },
+                { text: 'Registration Tokens', link: '/api/nodes/registration' },
+                { text: 'Node Commands', link: '/api/nodes/commands' },
+                { text: 'WebSocket Connection', link: '/api/nodes/websocket' },
+              ]
+            },
+            {
+              text: 'Billing',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/api/billing' },
+                { text: 'Subscriptions', link: '/api/billing/subscriptions' },
+                { text: 'Webhooks', link: '/api/billing/webhooks' },
+              ]
+            },
+            { text: 'Webhooks', link: '/api/webhooks' },
+            { text: 'Alerts', link: '/api/alerts' },
+            {
+              text: 'Settings',
+              collapsed: true,
+              items: [
+                { text: 'S3 Storage', link: '/api/settings/s3' },
+                { text: 'Cloudflare DNS', link: '/api/settings/cloudflare' },
+              ]
+            },
+            {
+              text: 'Templates',
+              collapsed: true,
+              items: [
+                { text: 'Server Templates', link: '/api/templates/server' },
+                { text: 'Plugin Templates', link: '/api/templates/plugins' },
+                { text: 'Modpack Templates', link: '/api/templates/modpacks' },
+              ]
+            },
+            { text: 'Agents', link: '/api/agents' },
+            { text: 'Jobs', link: '/api/jobs' },
+            { text: 'Usage & Quotas', link: '/api/usage' },
+            { text: 'Runtimes', link: '/api/runtimes' },
+            { text: 'Deploy API', link: '/api/deploy' },
+            { text: 'Error Codes', link: '/api/errors' },
+            {
+              text: 'SDKs',
+              collapsed: true,
+              items: [
+                { text: 'Node.js', link: '/api/sdks/node' },
+                { text: 'Python', link: '/api/sdks/python' },
+              ]
+            },
+            { text: 'Changelog', link: '/api/changelog' },
           ]
         }
       ],
@@ -64,11 +135,82 @@ export default defineConfig({
         },
         {
           text: 'API Reference',
+          collapsed: false,
           items: [
             { text: 'Overview', link: '/api/overview' },
-            { text: 'Servers', link: '/api/servers' },
-            { text: 'Nodes', link: '/api/nodes' },
-            { text: 'Billing', link: '/api/billing' }
+            { text: 'Authentication', link: '/api/auth' },
+            {
+              text: 'Servers',
+              collapsed: true,
+              items: [
+                { text: 'Server CRUD', link: '/api/servers' },
+                { text: 'Operations', link: '/api/servers/operations' },
+                { text: 'File Management', link: '/api/servers/files' },
+                { text: 'Console & Logs', link: '/api/servers/console' },
+                { text: 'Backups', link: '/api/servers/backups' },
+                { text: 'Plugins', link: '/api/servers/plugins' },
+                { text: 'Git Operations', link: '/api/servers/git' },
+                { text: 'Build System', link: '/api/servers/build' },
+                { text: 'Deployment', link: '/api/servers/deploy' },
+                { text: 'Profiling', link: '/api/servers/profiling' },
+                { text: 'Server Properties', link: '/api/servers/properties' },
+                { text: 'Cron Tasks', link: '/api/servers/cron-tasks' },
+              ]
+            },
+            {
+              text: 'Nodes',
+              collapsed: true,
+              items: [
+                { text: 'Node Management', link: '/api/nodes' },
+                { text: 'API Keys', link: '/api/nodes/api-keys' },
+                { text: 'Registration Tokens', link: '/api/nodes/registration' },
+                { text: 'Node Commands', link: '/api/nodes/commands' },
+                { text: 'WebSocket Connection', link: '/api/nodes/websocket' },
+              ]
+            },
+            {
+              text: 'Billing',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/api/billing' },
+                { text: 'Subscriptions', link: '/api/billing/subscriptions' },
+                { text: 'Webhooks', link: '/api/billing/webhooks' },
+              ]
+            },
+            { text: 'Webhooks', link: '/api/webhooks' },
+            { text: 'Alerts', link: '/api/alerts' },
+            {
+              text: 'Settings',
+              collapsed: true,
+              items: [
+                { text: 'S3 Storage', link: '/api/settings/s3' },
+                { text: 'Cloudflare DNS', link: '/api/settings/cloudflare' },
+              ]
+            },
+            {
+              text: 'Templates',
+              collapsed: true,
+              items: [
+                { text: 'Server Templates', link: '/api/templates/server' },
+                { text: 'Plugin Templates', link: '/api/templates/plugins' },
+                { text: 'Modpack Templates', link: '/api/templates/modpacks' },
+              ]
+            },
+            { text: 'Agents', link: '/api/agents' },
+            { text: 'Jobs', link: '/api/jobs' },
+            { text: 'Usage & Quotas', link: '/api/usage' },
+            { text: 'Runtimes', link: '/api/runtimes' },
+            { text: 'Deploy API', link: '/api/deploy' },
+            { text: 'Error Codes', link: '/api/errors' },
+            {
+              text: 'SDKs',
+              collapsed: true,
+              items: [
+                { text: 'Node.js', link: '/api/sdks/node' },
+                { text: 'Python', link: '/api/sdks/python' },
+              ]
+            },
+            { text: 'Changelog', link: '/api/changelog' },
           ]
         }
       ],
@@ -97,9 +239,79 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Overview', link: '/api/overview' },
-            { text: 'Servers', link: '/api/servers' },
-            { text: 'Nodes', link: '/api/nodes' },
-            { text: 'Billing', link: '/api/billing' }
+            { text: 'Authentication', link: '/api/auth' },
+            {
+              text: 'Servers',
+              collapsed: true,
+              items: [
+                { text: 'Server CRUD', link: '/api/servers' },
+                { text: 'Operations', link: '/api/servers/operations' },
+                { text: 'File Management', link: '/api/servers/files' },
+                { text: 'Console & Logs', link: '/api/servers/console' },
+                { text: 'Backups', link: '/api/servers/backups' },
+                { text: 'Plugins', link: '/api/servers/plugins' },
+                { text: 'Git Operations', link: '/api/servers/git' },
+                { text: 'Build System', link: '/api/servers/build' },
+                { text: 'Deployment', link: '/api/servers/deploy' },
+                { text: 'Profiling', link: '/api/servers/profiling' },
+                { text: 'Server Properties', link: '/api/servers/properties' },
+                { text: 'Cron Tasks', link: '/api/servers/cron-tasks' },
+              ]
+            },
+            {
+              text: 'Nodes',
+              collapsed: true,
+              items: [
+                { text: 'Node Management', link: '/api/nodes' },
+                { text: 'API Keys', link: '/api/nodes/api-keys' },
+                { text: 'Registration Tokens', link: '/api/nodes/registration' },
+                { text: 'Node Commands', link: '/api/nodes/commands' },
+                { text: 'WebSocket Connection', link: '/api/nodes/websocket' },
+              ]
+            },
+            {
+              text: 'Billing',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/api/billing' },
+                { text: 'Subscriptions', link: '/api/billing/subscriptions' },
+                { text: 'Webhooks', link: '/api/billing/webhooks' },
+              ]
+            },
+            { text: 'Webhooks', link: '/api/webhooks' },
+            { text: 'Alerts', link: '/api/alerts' },
+            {
+              text: 'Settings',
+              collapsed: true,
+              items: [
+                { text: 'S3 Storage', link: '/api/settings/s3' },
+                { text: 'Cloudflare DNS', link: '/api/settings/cloudflare' },
+              ]
+            },
+            {
+              text: 'Templates',
+              collapsed: true,
+              items: [
+                { text: 'Server Templates', link: '/api/templates/server' },
+                { text: 'Plugin Templates', link: '/api/templates/plugins' },
+                { text: 'Modpack Templates', link: '/api/templates/modpacks' },
+              ]
+            },
+            { text: 'Agents', link: '/api/agents' },
+            { text: 'Jobs', link: '/api/jobs' },
+            { text: 'Usage & Quotas', link: '/api/usage' },
+            { text: 'Runtimes', link: '/api/runtimes' },
+            { text: 'Deploy API', link: '/api/deploy' },
+            { text: 'Error Codes', link: '/api/errors' },
+            {
+              text: 'SDKs',
+              collapsed: true,
+              items: [
+                { text: 'Node.js', link: '/api/sdks/node' },
+                { text: 'Python', link: '/api/sdks/python' },
+              ]
+            },
+            { text: 'Changelog', link: '/api/changelog' },
           ]
         }
       ],
@@ -128,9 +340,79 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Overview', link: '/api/overview' },
-            { text: 'Servers', link: '/api/servers' },
-            { text: 'Nodes', link: '/api/nodes' },
-            { text: 'Billing', link: '/api/billing' }
+            { text: 'Authentication', link: '/api/auth' },
+            {
+              text: 'Servers',
+              collapsed: true,
+              items: [
+                { text: 'Server CRUD', link: '/api/servers' },
+                { text: 'Operations', link: '/api/servers/operations' },
+                { text: 'File Management', link: '/api/servers/files' },
+                { text: 'Console & Logs', link: '/api/servers/console' },
+                { text: 'Backups', link: '/api/servers/backups' },
+                { text: 'Plugins', link: '/api/servers/plugins' },
+                { text: 'Git Operations', link: '/api/servers/git' },
+                { text: 'Build System', link: '/api/servers/build' },
+                { text: 'Deployment', link: '/api/servers/deploy' },
+                { text: 'Profiling', link: '/api/servers/profiling' },
+                { text: 'Server Properties', link: '/api/servers/properties' },
+                { text: 'Cron Tasks', link: '/api/servers/cron-tasks' },
+              ]
+            },
+            {
+              text: 'Nodes',
+              collapsed: true,
+              items: [
+                { text: 'Node Management', link: '/api/nodes' },
+                { text: 'API Keys', link: '/api/nodes/api-keys' },
+                { text: 'Registration Tokens', link: '/api/nodes/registration' },
+                { text: 'Node Commands', link: '/api/nodes/commands' },
+                { text: 'WebSocket Connection', link: '/api/nodes/websocket' },
+              ]
+            },
+            {
+              text: 'Billing',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/api/billing' },
+                { text: 'Subscriptions', link: '/api/billing/subscriptions' },
+                { text: 'Webhooks', link: '/api/billing/webhooks' },
+              ]
+            },
+            { text: 'Webhooks', link: '/api/webhooks' },
+            { text: 'Alerts', link: '/api/alerts' },
+            {
+              text: 'Settings',
+              collapsed: true,
+              items: [
+                { text: 'S3 Storage', link: '/api/settings/s3' },
+                { text: 'Cloudflare DNS', link: '/api/settings/cloudflare' },
+              ]
+            },
+            {
+              text: 'Templates',
+              collapsed: true,
+              items: [
+                { text: 'Server Templates', link: '/api/templates/server' },
+                { text: 'Plugin Templates', link: '/api/templates/plugins' },
+                { text: 'Modpack Templates', link: '/api/templates/modpacks' },
+              ]
+            },
+            { text: 'Agents', link: '/api/agents' },
+            { text: 'Jobs', link: '/api/jobs' },
+            { text: 'Usage & Quotas', link: '/api/usage' },
+            { text: 'Runtimes', link: '/api/runtimes' },
+            { text: 'Deploy API', link: '/api/deploy' },
+            { text: 'Error Codes', link: '/api/errors' },
+            {
+              text: 'SDKs',
+              collapsed: true,
+              items: [
+                { text: 'Node.js', link: '/api/sdks/node' },
+                { text: 'Python', link: '/api/sdks/python' },
+              ]
+            },
+            { text: 'Changelog', link: '/api/changelog' },
           ]
         }
       ]
