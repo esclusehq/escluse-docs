@@ -1,9 +1,18 @@
 import DefaultTheme from 'vitepress/theme'
+import type { Theme } from 'vitepress'
 import './custom.css'
+
+import OpenApiSchema from '../components/OpenApiSchema.vue'
+import StaticSchema from '../components/StaticSchema.vue'
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  async enhanceApp({ app }) {
+    // Register custom schema components globally (per D-02)
+    app.component('OpenApiSchema', OpenApiSchema)
+    app.component('StaticSchema', StaticSchema)
+
+    // Title bar navigation to landing page
     app.mixin({
       mounted() {
         this.$nextTick(() => {
@@ -19,4 +28,4 @@ export default {
       }
     })
   }
-}
+} satisfies Theme
