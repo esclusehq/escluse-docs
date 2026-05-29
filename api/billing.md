@@ -1,6 +1,16 @@
 # Billing API
 
-Manage subscriptions and payments via the REST API.
+Manage subscriptions and payments via the REST API. Escluse uses Lemon Squeezy for payment processing.
+
+## Plans
+
+View available subscription plans:
+
+| Plan | Price | Max Nodes | Max Servers | Features |
+|------|-------|-----------|------------|---------|
+| Starter | $5/mo | 1 | 5 | Basic support |
+| Pro | $15/mo | 3 | 15 | Modpacks, priority support |
+| Enterprise | Custom | Unlimited | Unlimited | Dedicated support |
 
 ## Get Subscription
 
@@ -8,7 +18,29 @@ Manage subscriptions and payments via the REST API.
 GET /api/v1/billing/subscription
 ```
 
-**Response:**
+Retrieves the currently active subscription details.
+
+### Example Request
+
+::: code-group
+
+```bash [curl]
+curl -X GET https://api.esluce.com/api/v1/billing/subscription \
+  -H "Authorization: Bearer ${ESCLUSE_API_KEY}"
+```
+
+```typescript [Node.js SDK]
+const subscription = await client.billing.getSubscription();
+```
+
+```python [Python SDK]
+subscription = client.billing.get_subscription()
+```
+
+:::
+
+### Example Response
+
 ```json
 {
   "data": {
@@ -26,32 +58,61 @@ GET /api/v1/billing/subscription
 }
 ```
 
-## Plans
+### Possible Errors
 
-| Plan | Price | Max Nodes | Max Servers | Features |
-|------|-------|-----------|------------|---------|
-| Starter | $5/mo | 1 | 5 | Basic support |
-| Pro | $15/mo | 3 | 15 | Modpacks, priority support |
-| Enterprise | Custom | Unlimited | Unlimited | Dedicated support |
+| HTTP | Code | Description |
+|------|------|-------------|
+| 403 | `BIL_SUBSCRIPTION_EXPIRED` | Subscription has expired |
+
+---
 
 ## Create Checkout Session
-
-Redirect user to Lemon Squeezy checkout:
 
 ```http
 POST /api/v1/billing/checkout
 ```
 
-**Request Body:**
-```json
-{
-  "plan": "pro",
-  "success_url": "https://app.esluce.com/billing?success=true",
-  "cancel_url": "https://app.esluce.com/billing?canceled=true"
-}
+Creates a Lemon Squeezy checkout session for subscription purchase or plan change.
+
+### Request Body
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `plan` | string | Yes | Plan ID (`starter`, `pro`, `enterprise`) |
+| `success_url` | string | Yes | Redirect URL after successful payment |
+| `cancel_url` | string | Yes | Redirect URL if user cancels |
+
+### Example Request
+
+::: code-group
+
+```bash [curl]
+curl -X POST https://api.esluce.com/api/v1/billing/checkout \
+  -H "Authorization: Bearer ${ESCLUSE_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{"plan": "pro", "success_url": "https://app.esluce.com/billing?success=true", "cancel_url": "https://app.esluce.com/billing?canceled=true"}'
 ```
 
-**Response:**
+```typescript [Node.js SDK]
+const session = await client.billing.createCheckout({
+  plan: 'pro',
+  successUrl: 'https://app.esluce.com/billing?success=true',
+  cancelUrl: 'https://app.esluce.com/billing?canceled=true'
+});
+```
+
+```python [Python SDK]
+session = client.billing.create_checkout(
+  plan='pro',
+  success_url='https://app.esluce.com/billing?success=true',
+  cancel_url='https://app.esluce.com/billing?canceled=true'
+)
+```
+
+:::
+
+### Example Response
+
 ```json
 {
   "data": {
@@ -60,13 +121,72 @@ POST /api/v1/billing/checkout
 }
 ```
 
+---
+
+## Customer Portal
+
+```http
+POST /api/v1/billing/portal
+```
+
+Generates a Lemon Squeezy customer portal URL for managing subscription, invoices, and billing details.
+
+### Example Request
+
+::: code-group
+
+```bash [curl]
+curl -X POST https://api.esluce.com/api/v1/billing/portal \
+  -H "Authorization: Bearer ${ESCLUSE_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{"redirect_url": "https://app.esluce.com/billing"}'
+```
+
+```typescript [Node.js SDK]
+const portal = await client.billing.getPortal({
+  redirectUrl: 'https://app.esluce.com/billing'
+});
+```
+
+```python [Python SDK]
+portal = client.billing.get_portal(
+  redirect_url='https://app.esluce.com/billing'
+)
+```
+
+:::
+
+---
+
 ## Get Invoices
 
 ```http
 GET /api/v1/billing/invoices
 ```
 
-**Response:**
+Retrieves a list of past invoices.
+
+### Example Request
+
+::: code-group
+
+```bash [curl]
+curl -X GET https://api.esluce.com/api/v1/billing/invoices \
+  -H "Authorization: Bearer ${ESCLUSE_API_KEY}"
+```
+
+```typescript [Node.js SDK]
+const invoices = await client.billing.listInvoices();
+```
+
+```python [Python SDK]
+invoices = client.billing.list_invoices()
+```
+
+:::
+
+### Example Response
+
 ```json
 {
   "data": [
@@ -82,89 +202,7 @@ GET /api/v1/billing/invoices
 }
 ```
 
-## Webhook Events
-
-Escluse processes subscription events via webhooks:
-
-### Subscription Created
-
-```json
-{
-  "event": "subscription_created",
-  "data": {
-    "subscription_id": "sub_abc123",
-    "plan": "pro",
-    "customer_email": "user@example.com"
-  }
-}
-```
-
-### Subscription Updated
-
-```json
-{
-  "event": "subscription_updated",
-  "data": {
-    "subscription_id": "sub_abc123",
-    "plan": "pro",
-    "status": "active"
-  }
-}
-```
-
-### Subscription Canceled
-
-```json
-{
-  "event": "subscription_canceled",
-  "data": {
-    "subscription_id": "sub_abc123",
-    "effective_date": "2026-06-01T00:00:00Z"
-  }
-}
-```
-
-### Refund Processed
-
-```json
-{
-  "event": "refund_processed",
-  "data": {
-    "refund_id": "ref_xyz",
-    "amount": 1500,
-    "reason": "customer_request",
-    "eligibility": {
-      "type": "full",
-      "days_since_subscription": 3
-    }
-  }
-}
-```
-
-## Refund Eligibility
-
-| Time Since Subscription | Refund Type |
-|------------------------|-------------|
-| 0-7 days | Full refund |
-| 8-30 days | Prorated refund |
-| 30+ days | No refund |
-
-## Webhook Security
-
-Webhook payloads are signed. Verify signatures:
-
-```javascript
-const crypto = require('crypto');
-
-function verifyWebhook(payload, signature, secret) {
-  const hmac = crypto.createHmac('sha256', secret);
-  const digest = hmac.update(payload).digest('hex');
-  return crypto.timingSafeEqual(
-    Buffer.from(digest),
-    Buffer.from(signature)
-  );
-}
-```
+---
 
 ## Usage Limits
 
@@ -179,3 +217,9 @@ API enforces plan limits on server creation:
   }
 }
 ```
+
+### Related Endpoints
+
+For more billing management, see:
+- [Subscriptions](/api/billing/subscriptions) — View and manage subscription details
+- [Billing Webhooks](/api/billing/webhooks) — Webhook event types and security
