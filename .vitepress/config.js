@@ -3,6 +3,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Escluse',
   description: 'Game Server Hosting Platform - Deploy, manage, and monitor game servers with ease',
+  ignoreDeadLinks: [
+    /\/api\/nodes\/api-keys$/,
+    /\/api\/sdks\//,
+  ],
 
   themeConfig: {
     logo: '/logo.svg',
