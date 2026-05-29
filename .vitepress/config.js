@@ -8,6 +8,8 @@ export default defineConfig({
     /\/api\/sdks\//,
     /\/api\/servers\//,
     /\/api\/templates\//,
+    /\/api\/usage$/,
+    /\/api\/billing\/.+$/,
   ],
 
   themeConfig: {
