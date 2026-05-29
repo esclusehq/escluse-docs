@@ -6,6 +6,7 @@ export default defineConfig({
   ignoreDeadLinks: [
     /\/api\/nodes\/api-keys$/,
     /\/api\/sdks\//,
+    /\/api\/servers\//,
   ],
 
   themeConfig: {
