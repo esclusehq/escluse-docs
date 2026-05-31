@@ -1,6 +1,6 @@
 # Agents API
 
-Manage Solys agents deployed on compute nodes.
+Manage Escluse agents deployed on compute nodes.
 
 ## List Agents
 
@@ -54,9 +54,9 @@ Lists available agent versions and download links for supported platforms.
       {
         "version": "1.2.3",
         "platforms": {
-          "linux/amd64": "https://get.esluce.com/agent/v1.2.3/solys-linux-amd64",
-          "linux/arm64": "https://get.esluce.com/agent/v1.2.3/solys-linux-arm64",
-          "windows/amd64": "https://get.esluce.com/agent/v1.2.3/solys-windows-amd64.exe"
+"linux/amd64": "https://get.esluce.com/agent/v1.2.3/escluse-agent-linux-amd64",
+"linux/arm64": "https://get.esluce.com/agent/v1.2.3/escluse-agent-linux-arm64",
+"windows/amd64": "https://get.esluce.com/agent/v1.2.3/escluse-agent-windows-amd64.exe"
         }
       }
     ]
